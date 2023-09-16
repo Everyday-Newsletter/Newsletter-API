@@ -34,7 +34,6 @@ def get_year(ticker):
 
 def get_month(ticker):
     today = dt.datetime.today()
-    now = dt.datetime.now()
 
     if today.month == 1:
         startMonth = today.month + 11
