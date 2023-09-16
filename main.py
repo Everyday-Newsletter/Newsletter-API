@@ -14,4 +14,4 @@ def get_joke():
     return None
 
 # Port 8080 on all interfaces
-app.listen('0.0.0.0', port=8080)
+app.run('0.0.0.0', port=8080)
