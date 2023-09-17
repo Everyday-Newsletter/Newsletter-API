@@ -78,7 +78,7 @@ def _get_data_year(start, end, ticker):
     plt.figure(figsize=(10, 5))
     plt.plot(data["Close"])
     company_name = yf.Ticker(ticker).info["longName"]
-    plt.title(company_name+": Previous Year", fontsize=30)
+    plt.title(company_name + ": Previous Year", fontsize=30)
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
 
@@ -92,7 +92,7 @@ def _get_data_month(start, end, ticker):
     plt.figure(figsize=(10, 5))
     plt.plot(data["Close"])
     company_name = yf.Ticker(ticker).info["longName"]
-    plt.title(company_name+": Previous Month", fontsize=30)
+    plt.title(company_name + ": Previous Month", fontsize=30)
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
 
