@@ -16,7 +16,10 @@ def get_cohere(inp):
         "stream": False,
         "chat_history": [
             {"user_name": "User", "message": inp},
-            {"user_name": "Chatbot", "message": "How do you feel today? Remember, I am here for you."},
+            {
+                "user_name": "Chatbot",
+                "message": "How do you feel today? Remember, I am here for you.",
+            },
         ],
         "prompt_truncation": "OFF",
     }

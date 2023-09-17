@@ -33,9 +33,9 @@ def get_year(ticker):
     data = _get_data(dt.datetime(startYear, startMonth, 1), today, ticker)
 
     my_stringIObytes = io.BytesIO()
-    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    plt.savefig(my_stringIObytes, format="jpg", bbox_inches="tight")
     my_stringIObytes.seek(0)
-    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode("ascii")
     return my_base64_jpgData
 
 
@@ -50,9 +50,9 @@ def get_month(ticker):
         startYear = today.year
     data = _get_data(dt.datetime(startYear, startMonth, 1), today, ticker)
     my_stringIObytes = io.BytesIO()
-    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    plt.savefig(my_stringIObytes, format="jpg", bbox_inches="tight")
     my_stringIObytes.seek(0)
-    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode("ascii")
     return my_base64_jpgData
 
 
@@ -65,9 +65,9 @@ def get_intraday(ticker):
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
     my_stringIObytes = io.BytesIO()
-    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    plt.savefig(my_stringIObytes, format="jpg", bbox_inches="tight")
     my_stringIObytes.seek(0)
-    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode("ascii")
     return my_base64_jpgData
 
 

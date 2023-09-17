@@ -20,7 +20,7 @@ tickers = [
 
 @stock_api.route("/stocks", methods=["GET"])
 def stocks():
-    plots=[]
+    plots = []
     for ticker in tickers:
         images = get_all_stock_data(ticker)
         if not images:
