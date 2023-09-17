@@ -12,15 +12,6 @@ import os
 import base64
 import io
 
-dirPath = "static/graphs/"
-
-
-def mysavefig(ticker, number, dirPath):
-    filePath = dirPath + ticker + str(number) + ".jpg"
-    if os.path.isfile(filePath):
-        os.remove(filePath)  # Opt.: os.system("rm "+strFile)
-    plt.savefig(filePath)
-
 
 def get_all_stock_data(ticker):
     if not _is_valid_symbol(ticker):
@@ -41,7 +32,11 @@ def get_year(ticker):
         startYear = today.year - 1
     data = _get_data(dt.datetime(startYear, startMonth, 1), today, ticker)
 
-    mysavefig(ticker, 0, dirPath)
+    my_stringIObytes = io.BytesIO()
+    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    my_stringIObytes.seek(0)
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    return my_base64_jpgData
 
 
 def get_month(ticker):
@@ -54,7 +49,11 @@ def get_month(ticker):
         startMonth = today.month - 1
         startYear = today.year
     data = _get_data(dt.datetime(startYear, startMonth, 1), today, ticker)
-    mysavefig(ticker, 1, dirPath)
+    my_stringIObytes = io.BytesIO()
+    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    my_stringIObytes.seek(0)
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    return my_base64_jpgData
 
 
 def get_intraday(ticker):
@@ -65,7 +64,11 @@ def get_intraday(ticker):
     plt.title(company_name + ": Historical Stock Value")
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
-    mysavefig(ticker, 2, dirPath)
+    my_stringIObytes = io.BytesIO()
+    plt.savefig(my_stringIObytes, format='jpg', bbox_inches='tight')
+    my_stringIObytes.seek(0)
+    my_base64_jpgData = base64.b64encode(my_stringIObytes.read()).decode('ascii')
+    return my_base64_jpgData
 
 
 def _get_data(start, end, ticker):

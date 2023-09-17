@@ -1,5 +1,5 @@
 import requests
-from .helpStocks import get_all_stock_data, dirPath
+from .helpStocks import get_all_stock_data
 from flask import request, Blueprint, render_template_string
 
 stock_api = Blueprint("stock_api", __name__)
@@ -20,14 +20,11 @@ tickers = [
 
 @stock_api.route("/stocks", methods=["GET"])
 def stocks():
-    html = ""
+    plots=[]
     for ticker in tickers:
         images = get_all_stock_data(ticker)
         if not images:
             continue
+        plots.append(images)
 
-        for i in range(3):
-            filePath = dirPath + ticker + str(i) + ".jpg"
-            html += f'<img src="{filePath}" class="blog-image">'
-
-    return render_template_string(html)
+    return plots
