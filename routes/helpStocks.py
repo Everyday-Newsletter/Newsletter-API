@@ -1,6 +1,7 @@
 import yfinance as yf
 import matplotlib
-matplotlib.use('agg')
+
+matplotlib.use("agg")
 from matplotlib import pyplot as plt
 
 import datetime as dt
@@ -11,12 +12,13 @@ import os
 import base64
 import io
 
-dirPath = 'static/graphs/'
+dirPath = "static/graphs/"
+
 
 def mysavefig(ticker, number, dirPath):
     filePath = dirPath + ticker + str(number) + ".jpg"
     if os.path.isfile(filePath):
-        os.remove(filePath)   # Opt.: os.system("rm "+strFile)
+        os.remove(filePath)  # Opt.: os.system("rm "+strFile)
     plt.savefig(filePath)
 
 
@@ -42,7 +44,6 @@ def get_year(ticker):
     mysavefig(ticker, 0, dirPath)
 
 
-
 def get_month(ticker):
     today = dt.datetime.today()
 
@@ -56,7 +57,6 @@ def get_month(ticker):
     mysavefig(ticker, 1, dirPath)
 
 
-
 def get_intraday(ticker):
     data = yf.download(ticker, period="1d", interval="1m")
     plt.figure(figsize=(10, 5))
@@ -66,7 +66,6 @@ def get_intraday(ticker):
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
     mysavefig(ticker, 2, dirPath)
-
 
 
 def _get_data(start, end, ticker):
