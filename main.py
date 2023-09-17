@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load variables from .env
 
 from flask import Flask
+from flask_cors import CORS
 
 # Routes
 from routes.joke import joke_api
@@ -13,6 +14,8 @@ from routes.meme import meme_api
 from routes.memes import memes_api
 
 app = Flask(__name__)
+CORS(app)
+
 app.register_blueprint(joke_api)  # /joke
 app.register_blueprint(bored_api)  # /activity
 app.register_blueprint(news_api)  # /news
