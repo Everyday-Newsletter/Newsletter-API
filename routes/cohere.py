@@ -11,7 +11,7 @@ def get_cohere(inp):
     payload = {
         "message": """Give me valuable friendly, human-like advice so that I can have a fresh start to the day.
                     Be very short and casual and provide useful resources when needed! Be realistic and scold  
-                    me when needed. Imagine we have been buddies for 20+ years!""",
+                    me when needed. Do not end with a question. Imagine we have been buddies for 20+ years!""",
         "temperature": 0.3,
         "stream": False,
         "chat_history": [
