@@ -13,7 +13,6 @@ tickers = [
     "NVDA",
     "META",
     "TSLA",
-    "MC.PA",
     "V",
 ]
 
