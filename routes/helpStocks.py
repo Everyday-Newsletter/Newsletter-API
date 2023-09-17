@@ -61,7 +61,7 @@ def get_intraday(ticker):
     plt.figure(figsize=(10, 5))
     plt.plot(data["Close"])
     company_name = yf.Ticker(ticker).info["longName"]
-    plt.title(company_name + ": Historical Stock Value")
+    plt.title(company_name + ": Historical Stock Value", fontsize=20)
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
     my_stringIObytes = io.BytesIO()
@@ -78,7 +78,7 @@ def _get_data(start, end, ticker):
     plt.figure(figsize=(10, 5))
     plt.plot(data["Close"])
     company_name = yf.Ticker(ticker).info["longName"]
-    plt.title(company_name + ": Historical Stock Value")
+    plt.title(company_name + ": Historical Stock Value", fontsize=20)
     plt.xlabel("Date")
     plt.ylabel("Stock Price")
 
