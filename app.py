@@ -6,6 +6,7 @@ from flask import Flask
 from flask_cors import CORS
 
 # Routes
+from routes.cohere import cohere_api
 from routes.joke import joke_api
 from routes.bored import bored_api
 from routes.news import news_api
@@ -16,6 +17,7 @@ from routes.memes import memes_api
 app = Flask(__name__)
 CORS(app)
 
+app.register_blueprint(cohere_api) # /mental_health
 app.register_blueprint(joke_api)  # /joke
 app.register_blueprint(bored_api)  # /activity
 app.register_blueprint(news_api)  # /news
