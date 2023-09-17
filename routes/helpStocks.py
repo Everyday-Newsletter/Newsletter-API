@@ -1,5 +1,8 @@
 import yfinance as yf
+import matplotlib
+matplotlib.use('agg')
 from matplotlib import pyplot as plt
+
 import datetime as dt
 import sys
 import os
