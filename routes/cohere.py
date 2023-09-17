@@ -5,7 +5,6 @@ import json
 cohere_api = Blueprint("cohere_api", __name__)
 
 
-
 def get_cohere(inp):
     url = "https://api.cohere.ai/v1/chat"
 
@@ -14,21 +13,15 @@ def get_cohere(inp):
         "temperature": 0.5,
         "stream": False,
         "chat_history": [
-            {
-                "user_name": "User",
-                "message": inp
-            },
-            {
-                "user_name": "Chatbot",
-                "message": "How are you doing today?"
-            }
+            {"user_name": "User", "message": inp},
+            {"user_name": "Chatbot", "message": "How are you doing today?"},
         ],
-        "prompt_truncation": "OFF"
+        "prompt_truncation": "OFF",
     }
     headers = {
         "accept": "application/json",
         "content-type": "application/json",
-        "authorization": "Bearer J0pxW49Jt8qDsdTY5KEjSix7hzzQlQXoKsfKPVK5"
+        "authorization": "Bearer J0pxW49Jt8qDsdTY5KEjSix7hzzQlQXoKsfKPVK5",
     }
 
     response = requests.post(url, json=payload, headers=headers)
@@ -41,6 +34,5 @@ def mental_health():
     message = request.args.get("message", "").strip()
     if not message:
         return "Please provide 'message' parameter", 403
-
 
     return get_cohere(message)
