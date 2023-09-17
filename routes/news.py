@@ -1,4 +1,4 @@
-import requests, os, json, random
+import requests, os, random
 from flask import Blueprint, request
 
 news_api = Blueprint("news_api", __name__)
