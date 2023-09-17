@@ -9,12 +9,14 @@ def get_cohere(inp):
     url = "https://api.cohere.ai/v1/chat"
 
     payload = {
-        "message": "Based on my response give me advice for the day.",
-        "temperature": 0.5,
+        "message": """Give me valuable friendly, human-like advice so that I can have a fresh start to the day.
+                    Be very short and casual and provide useful resources when needed! Be realistic and scold  
+                    me when needed. Imagine we have been buddies for 20+ years!""",
+        "temperature": 0.3,
         "stream": False,
         "chat_history": [
             {"user_name": "User", "message": inp},
-            {"user_name": "Chatbot", "message": "How are you doing today?"},
+            {"user_name": "Chatbot", "message": "How do you feel today? Remember, I am here for you."},
         ],
         "prompt_truncation": "OFF",
     }
